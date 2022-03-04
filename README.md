@@ -1,7 +1,8 @@
 # email-tool-fiesta
 In requirements you can see the versions
 
-# Packages
+## Packages 
+You can ommit this and install all requirements.txt
 - requests
 ```bash
     pip install requests
@@ -23,6 +24,8 @@ ORIGEN=your@mail.com
 DESTINY=destiny@mail.com
 PASS=your_pass
 ```
+- Create some pdf folder to add a file
+
 - You can use .env for the examples sending email to only one recipient 
 - Also Create a file emails.csv to use in the example to send tu multiple recipients, with the headers:
 ```bash
