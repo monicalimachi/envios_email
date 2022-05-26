@@ -12,16 +12,16 @@ PASSWD = os.getenv("PASS")
 
 try:
     yag = yagmail.SMTP(user=RECEIPT, password=PASSWD)
-    body = "Hello there from Yagmail"
-    filename = "pdf/sample.pdf"
+    body = "<H1>Hola desde este ejemplo</H1>\n Mi nombre es: <b>Juana</b>\n Mi edad es: <b>25</b>\n Mi email es: <b>"
+    filename = "pdf/php-ejemplos.pdf"
 
   #  yag = RECEIPT
     yag.send(
     to=DESTINY,
-    subject="Yagmail test with attachment",
+    subject="Testeando envio de archivos PDF con Yagmail",
     contents=body, 
     attachments=filename,
     )
-    print("Email sent successfully")
+    print("Email enviado exitosamente")
 except Exception as e:
     print(e)

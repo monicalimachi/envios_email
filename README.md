@@ -1,35 +1,42 @@
-# email-tool-fiesta
-In requirements you can see the versions
+# Emails ejemplos de automatizacion
+En requirements.txt podras ver las bibliotecas y versiones que se necesitan en estos ejemplos.
 
-## Packages 
-You can ommit this and install all requirements.txt
-- requests
-```bash
-    pip install requests
-```
-- beautifulsoup4
-```bash
-    pip install beautifulsoup4
-```
+## Iniciando 
 
-## About emails
-- Create an virtualenv
-- Install requirements
+- Crea el virtualenv
+- Despues de descargar el contenido de git, debes comenzar instalando requirements.txt
 ```bash
-    pip install requirements.txt
+    pip install -r requirements.txt
 ```
-- Create the .env file to add values: 
+- Crear el archivo .env para adicionar valores de conexion del email para el envio de emails: 
 ```bash
 ORIGEN=your@mail.com
 DESTINY=destiny@mail.com
 PASS=your_pass
 ```
-- Create some pdf folder to add a file
+- Generando passwords para apps, al utilizar Gmail: https://towardsdatascience.com/automate-sending-emails-with-gmail-in-python-449cc0c3c317
 
-- You can use .env for the examples sending email to only one recipient 
-- Also Create a file emails.csv to use in the example to send tu multiple recipients, with the headers:
+
+## Primer script: Utilizando scraping
+- Crear en la direccion: pdf/any.pdf
+```bash
+python script_request_scrapping.py
+```
+
+## Segundo script: Utilizando un archivo csv
+A TOMAR NOTA:
+- Puedes usar .env para los ejemplos para enviar a solo un destinatario tambien 
+- Para multiples destinatarios crea el archivo emails.csv, en este ejemplo enviaras a multiples destinatarios pero con diferentes valores (incluye la cabecera).
 ```bash
 name,email,message
 name1,email@mail.com,message1
 name2,email@mail.com,message2
+```
+```bash
+script_yagmail_users_attachments.py
+```
+
+## Tercer Script Crear algun pdf para adicionar a un archivo
+```bash
+python script_request_scrapping.py
 ```

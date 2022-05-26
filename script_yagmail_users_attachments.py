@@ -24,9 +24,9 @@ try:
          #for line in headers:
         for name, email, message in csv_reader:
             yag.send(email, subject = name, contents = message) 
-            print(f"Email sent to {name} with {email}")
+            print(f"Email enviado a {name} con {email}")
             time.sleep(wait)
-    print("Finished the submissions")
+    print("Los envios han finalizado")
 
 except Exception as e:
     print(e)

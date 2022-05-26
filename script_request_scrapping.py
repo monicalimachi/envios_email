@@ -2,7 +2,7 @@ from email import contentmanager
 import requests                                 #Http requests
 from bs4 import BeautifulSoup                   # Web Scrapping
 import smtplib                                  # Send email
-from email.mime.multipart import MIMEMultipart #Email body
+from email.mime.multipart import MIMEMultipart  #Email body
 from email.mime.text import MIMEText            # Email body
 import datetime
 
@@ -17,28 +17,28 @@ PASSWD = os.getenv("PASS")
 
 now = datetime.datetime.now()
 
-content = ''        #Email content placeholder, this var is global
+content = ''        #Email content placeholder, global var
 
 
-#Extracting Hacker News Stories
+#Extrayendo titulos de noticias
 
 def extract_news(url):
-    print('Extracting new stories')
+    print('Extrayendo nuevas noticias')
     cnt= ''
-    cnt += ('<b> HN Top Stories:</b>\n'+'<br>'+'-'*50+'<br>')
+    cnt += ('<b> Bolivia:</b>\n'+'<br>'+'-'*50+'<br>')
     response = requests.get(url)
     content = response.content                      #This var is local
     soup = BeautifulSoup(content,'html.parser')
-    for i, tag in enumerate(soup.find_all('td', attrs={'class':'title','valign':''})):
+    for i, tag in enumerate(soup.find_all('h3', attrs={'class':'entry-title td-module-title'})):
         cnt += ((str(i+1)+'::'+tag.text + "\n"+'<br>') if tag.text!='More' else '')
 
     return(cnt)
 
-cnt = extract_news('https://news.ycombinator.com')
+cnt = extract_news('https://jornada.com.bo/')
 content+=cnt
 content += ('<br>--------<br>')
 content += ('<br><br>End of message')
-print('Composing Email .... ')
+print('Construyendo el Email .... ')
 
 #Update your emails
 SERVER = 'smtp.gmail.com'   # "your smtp server"
